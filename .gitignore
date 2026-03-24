@@ -85,3 +85,7 @@ crashlytics-build.properties
 # OS files
 .DS_Store
 Thumbs.db
+
+/Obligatorio1/Library
+/Obligatorio1/Logs
+/Obligatorio1/Temp

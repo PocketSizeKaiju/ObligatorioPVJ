@@ -11,8 +11,10 @@ public class Settings : ScriptableObject
         Instance = this;
     }
 
+    [Tooltip("Defines the life of the player")]
+    public int PlayerLife;
     [Tooltip("Defines the speed of the player")]
     public float PlayerSpeed;    
-    public int CoinCount;
-    public int PlayerLife;
+    [Tooltip("Defines the falling speed of the spawns")]
+    public float fallingSpeed;
 }

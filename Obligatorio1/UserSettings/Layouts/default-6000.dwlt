@@ -145,7 +145,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 112}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 101
+  controlID: 46
   draggingID: 0
 --- !u!114 &7
 MonoBehaviour:
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 112}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 48
+  controlID: 47
   draggingID: 0
 --- !u!114 &8
 MonoBehaviour:
@@ -198,7 +198,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 56}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 49
+  controlID: 48
   draggingID: 0
 --- !u!114 &9
 MonoBehaviour:
@@ -298,8 +298,8 @@ MonoBehaviour:
     y: 0
     width: 400
     height: 941
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 76}
+  m_MaxSize: {x: 4001, y: 4026}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -1312,13 +1312,14 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: []
+      m_SelectedIDs:
+      - m_Data: 56086
       m_LastClickedID:
         m_Data: 0
       m_ExpandedIDs:
-      - m_Data: -1316
-      - m_Data: 48748
-      - m_Data: 48770
+      - m_Data: -62470
+      - m_Data: -59328
+      - m_Data: 75900
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1496,7 +1497,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Scriptable Objects
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1506,7 +1507,7 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 68
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Scriptable Objects
   m_LastFoldersGridSize: 68
   m_LastProjectPath: "C:\\Users\\cashm\\Desktop\\Programaci\xF3n de Videojuegos\\Obligatorio\\ObligatorioPVJ\\Obligatorio1"
   m_LockTracker:
@@ -1515,18 +1516,12 @@ MonoBehaviour:
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs:
-    - m_Data: 49188
+    - m_Data: 72946
     m_LastClickedID:
-      m_Data: 49188
+      m_Data: 72946
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 48878
-    - m_Data: 48880
-    - m_Data: 48882
-    - m_Data: 48884
-    - m_Data: 48886
-    - m_Data: 48888
-    - m_Data: 48890
+    - m_Data: 66132
     - m_Data: 1000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1558,15 +1553,7 @@ MonoBehaviour:
     m_SelectedIDs: []
     m_LastClickedID:
       m_Data: 0
-    m_ExpandedIDs:
-    - m_Data: 0
-    - m_Data: 48878
-    - m_Data: 48880
-    - m_Data: 48882
-    - m_Data: 48884
-    - m_Data: 48886
-    - m_Data: 48888
-    - m_Data: 48890
+    m_ExpandedIDs: []
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1594,8 +1581,8 @@ MonoBehaviour:
       m_ResourceFile: 
   m_ListAreaState:
     m_SelectedInstanceIDs:
-    - m_Data: -27300
-    m_LastClickedInstanceID: -27300
+    - m_Data: 56086
+    m_LastClickedInstanceID: 56086
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs:
     - m_Data: 67768

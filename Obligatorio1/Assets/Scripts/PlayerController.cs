@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
             direction.y += 1;
         }
 
-        Vector3 velocity = direction.normalized * 6;
+        Vector3 velocity = direction.normalized * Speed;
         transform.position += velocity * Time.deltaTime;
     }
 }

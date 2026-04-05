@@ -31,19 +31,19 @@ public class PlayerMovement : MonoBehaviour
         
         Vector3 direction = Vector2.zero;
 
-        if (Keyboard.current.leftArrowKey.IsPressed())
+        if (Keyboard.current.leftArrowKey.IsPressed() || Keyboard.current.aKey.IsPressed())
         {
             direction.x += -1;
         }
-        if (Keyboard.current.rightArrowKey.IsPressed())
+        if (Keyboard.current.rightArrowKey.IsPressed() || Keyboard.current.dKey.IsPressed())
         {
             direction.x += 1;
         }
-        if (Keyboard.current.downArrowKey.IsPressed())
+        if (Keyboard.current.downArrowKey.IsPressed() || Keyboard.current.sKey.IsPressed())
         {
            direction.y += -1;
         }
-        if (Keyboard.current.upArrowKey.IsPressed())
+        if (Keyboard.current.upArrowKey.IsPressed() || Keyboard.current.wKey.IsPressed())
         {
             direction.y += 1;
         }

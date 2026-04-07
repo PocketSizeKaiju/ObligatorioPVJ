@@ -14,16 +14,16 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         UpdateKeyboardInput();
-        UpdateMouseInput();
+        //UpdateMouseInput();
     }
 
-    private void UpdateMouseInput()
+    /* private void UpdateMouseInput()
     {
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
             Debug.Log("click");
         }
-    }
+    } */
 
     private void UpdateKeyboardInput()
     {

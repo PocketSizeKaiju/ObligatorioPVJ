@@ -1,10 +1,7 @@
 fileFormatVersion: 2
 guid: 99af6a9062d7e40eeb5e70005eb598d9
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 8990266445832068473
-    second: Small Heart Hit (18x14)_0
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,20 +100,42 @@ TextureImporter:
       name: Small Heart Hit (18x14)_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 1
-        width: 26
-        height: 13
+        x: 6
+        y: 0
+        width: 10
+        height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 97d1fe333b7d3cc70800000000000000
-      internalID: 8990266445832068473
+      spriteID: 98ed23c4535aa436da87bc7b42930fc6
+      internalID: 1627438253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small Heart Hit (18x14)_1
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 0
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 2, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 862b87484e85b4839868d25f076b1a7e
+      internalID: 734313281
       vertices: []
       indices: 
       edges: []
@@ -125,7 +144,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 95bb3161733c94803aa1476cbd87ac24
     internalID: 0
     vertices: []
     indices: 
@@ -133,9 +152,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":1.0},"gridSpriteSize":{"x":18.0,"y":14.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Small Heart Hit (18x14)_0: 8990266445832068473
+      Small Heart Hit (18x14)_0: 1627438253
+      Small Heart Hit (18x14)_1: 734313281
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

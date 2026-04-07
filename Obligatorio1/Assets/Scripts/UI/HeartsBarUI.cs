@@ -1,21 +1,20 @@
 using System.Reflection;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class HeartsBarUI : MonoBehaviour
 {
-    [SerializeField] private Image heartImage;
+    [SerializeField] private Animator animator;
     [SerializeField] private bool isActive;
 
     public void ActiveHeart()
     {
-        heartImage.enabled = true;
+        animator.SetTrigger("RestoreHeart");
         isActive = true;
     }
     
     public void DeactiveHeart()
     {
-        heartImage.enabled = false;
+        animator.SetTrigger("Damage");
         isActive = false;
     }
     public bool GetIsActive()

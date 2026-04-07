@@ -236,6 +236,7 @@ GameObject:
   - component: {fileID: 283976840}
   - component: {fileID: 283976839}
   - component: {fileID: 283976838}
+  - component: {fileID: 283976841}
   m_Layer: 5
   m_Name: Heart (2)
   m_TagString: Untagged
@@ -257,8 +258,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1198189005}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.3331098}
-  m_AnchorMax: {x: 0.614, y: 0.62238157}
+  m_AnchorMin: {x: 0.5037746, y: 0.3331098}
+  m_AnchorMax: {x: 0.6215492, y: 0.62238157}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -274,7 +275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a7170c70ef3a427893c92b4f3974df8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HeartsBarUI
-  heartImage: {fileID: 283976839}
+  animator: {fileID: 283976841}
   isActive: 1
 --- !u!114 &283976839
 MonoBehaviour:
@@ -314,6 +315,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 283976836}
   m_CullTransparentMesh: 1
+--- !u!95 &283976841
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283976836}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a7e37a458d01345d28e12b5672c99001, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,6 +486,7 @@ GameObject:
   - component: {fileID: 789957717}
   - component: {fileID: 789957716}
   - component: {fileID: 789957715}
+  - component: {fileID: 789957718}
   m_Layer: 5
   m_Name: Heart (3)
   m_TagString: Untagged
@@ -484,8 +508,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1198189005}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.6384239, y: 0.3331098}
-  m_AnchorMax: {x: 0.74, y: 0.62238157}
+  m_AnchorMin: {x: 0.64222544, y: 0.3331098}
+  m_AnchorMax: {x: 0.7625492, y: 0.62238157}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -501,7 +525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a7170c70ef3a427893c92b4f3974df8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HeartsBarUI
-  heartImage: {fileID: 789957716}
+  animator: {fileID: 789957718}
   isActive: 1
 --- !u!114 &789957716
 MonoBehaviour:
@@ -541,6 +565,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 789957713}
   m_CullTransparentMesh: 1
+--- !u!95 &789957718
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789957713}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a7e37a458d01345d28e12b5672c99001, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &792188144
 GameObject:
   m_ObjectHideFlags: 0
@@ -710,7 +756,7 @@ Rigidbody2D:
     serializedVersion: 2
     m_Bits: 0
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!114 &792188150
@@ -861,6 +907,7 @@ GameObject:
   - component: {fileID: 978412803}
   - component: {fileID: 978412802}
   - component: {fileID: 978412801}
+  - component: {fileID: 978412804}
   m_Layer: 5
   m_Name: Heart (1)
   m_TagString: Untagged
@@ -882,7 +929,7 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1198189005}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.38200003, y: 0.3331098}
+  m_AnchorMin: {x: 0.37445086, y: 0.3331098}
   m_AnchorMax: {x: 0.49185866, y: 0.62238157}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
@@ -899,7 +946,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a7170c70ef3a427893c92b4f3974df8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HeartsBarUI
-  heartImage: {fileID: 978412802}
+  animator: {fileID: 978412804}
   isActive: 1
 --- !u!114 &978412802
 MonoBehaviour:
@@ -939,6 +986,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 978412799}
   m_CullTransparentMesh: 1
+--- !u!95 &978412804
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978412799}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a7e37a458d01345d28e12b5672c99001, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &985606135
 GameObject:
   m_ObjectHideFlags: 0
@@ -1044,7 +1113,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!224 &1198189005
 RectTransform:
@@ -1066,8 +1135,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 150.8, y: -77.100006}
-  m_SizeDelta: {x: 266.08, y: 102.09}
+  m_AnchoredPosition: {x: 150.23, y: -82.55}
+  m_SizeDelta: {x: 264.93, y: 112.99}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1198189006
 MonoBehaviour:
@@ -1137,6 +1206,7 @@ GameObject:
   - component: {fileID: 1933204417}
   - component: {fileID: 1933204416}
   - component: {fileID: 1933204418}
+  - component: {fileID: 1933204419}
   m_Layer: 5
   m_Name: Heart
   m_TagString: Untagged
@@ -1158,8 +1228,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1198189005}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.25300002, y: 0.3331098}
-  m_AnchorMax: {x: 0.36100003, y: 0.62238157}
+  m_AnchorMin: {x: 0.24167627, y: 0.3331098}
+  m_AnchorMax: {x: 0.3647746, y: 0.62238157}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1213,8 +1283,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a7170c70ef3a427893c92b4f3974df8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HeartsBarUI
-  heartImage: {fileID: 1933204416}
+  animator: {fileID: 1933204419}
   isActive: 1
+--- !u!95 &1933204419
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933204414}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a7e37a458d01345d28e12b5672c99001, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2088352319
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class PlayerShoot : MonoBehaviour
 {
     private GameObject _shotPrefab;
+    private float _shootingInterval;
 
     void Awake()
     {
@@ -15,12 +16,13 @@ public class PlayerShoot : MonoBehaviour
 
     void Update()
     {
-        if (Mouse.current.leftButton.wasPressedThisFrame)
+        if (Mouse.current.leftButton.wasPressedThisFrame && _shootingInterval > Settings.Instance.PlayerShootInterval)
         {
             Shoot();
+            _shootingInterval = 0;
         }
+        _shootingInterval += Time.deltaTime;
     }
-
     private void Shoot()
     {
         Vector2 mousePosition = new Vector2(

@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 281245764}
   m_Layer: 0
   m_Name: EnemyManager
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d525cab590304dd3b3fff6dc9702ccc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DamageTouchingPlayer
-  damageAmount: 0
+  damageAmount: 1
 --- !u!1 &283976836
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,9 +557,9 @@ GameObject:
   - component: {fileID: 792188152}
   - component: {fileID: 792188149}
   - component: {fileID: 792188150}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -696,7 +696,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 792188144}
   m_BodyType: 1
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDamping: 0
@@ -711,7 +711,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!114 &792188150
 MonoBehaviour:
@@ -759,8 +759,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e417b955918fe430cb01388cc2182e12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerLife
-  maxLife: 0
-  actualLife: 0
+  maxLife: 4
+  actualLife: 4
 --- !u!1 &800543964
 GameObject:
   m_ObjectHideFlags: 0
@@ -1066,7 +1066,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 150.8, y: -77.1}
+  m_AnchoredPosition: {x: 150.8, y: -77.100006}
   m_SizeDelta: {x: 266.08, y: 102.09}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1198189006
@@ -1124,7 +1124,7 @@ MonoBehaviour:
   - {fileID: 978412801}
   - {fileID: 283976838}
   - {fileID: 789957715}
-  actualLife: 4
+  playerLife: {fileID: 0}
 --- !u!1 &1933204414
 GameObject:
   m_ObjectHideFlags: 0

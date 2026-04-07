@@ -4,15 +4,22 @@ using UnityEngine.InputSystem; // 1. Necesario para detectar el teclado
 public class ContainerHearts : MonoBehaviour
 {
     [SerializeField] private HeartsBarUI[] hearts;
-    [SerializeField] private int actualLife;
+    [SerializeField] private PlayerLife playerLife;
 
-    private void Update()
+    private void Start()
     {
-        // 2. Cambiamos Input.GetKeyDown por la sintaxis del nuevo sistema
-        if (Keyboard.current != null && Keyboard.current.tKey.wasPressedThisFrame)
-        {
-            ActivateHearts(actualLife);
-        }
+       playerLife = FindFirstObjectByType<PlayerLife>(); // 2. Obtener la vida actual del jugador al inicio 
+       
+       playerLife.PlayerTookDamage += ActivateHearts;
+       playerLife.PlayerHealed += ActivateHearts;
+
+       ActivateHearts(playerLife.GetActualLife()); // 3. Activar los corazones al inicio
+    }
+
+    void OnDisable()
+    {
+        playerLife.PlayerTookDamage -= ActivateHearts;
+        playerLife.PlayerHealed -= ActivateHearts;
     }
 
     public void ActivateHearts(int actualLife)

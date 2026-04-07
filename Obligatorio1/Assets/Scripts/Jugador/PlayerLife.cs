@@ -1,7 +1,10 @@
+using System;
 using UnityEngine;
 
 public class PlayerLife : MonoBehaviour
 {
+    public Action<int> PlayerTookDamage;
+    public Action<int> PlayerHealed;
     [SerializeField] private int maxLife;
     [SerializeField] private int actualLife;
 
@@ -17,6 +20,8 @@ public class PlayerLife : MonoBehaviour
         temporalLife = Mathf.Clamp(temporalLife, 0, maxLife);
 
         actualLife = temporalLife;
+
+        PlayerTookDamage?.Invoke(actualLife);
 
         if(actualLife <= 0)
         {
@@ -37,6 +42,8 @@ public class PlayerLife : MonoBehaviour
         temporalLife = Mathf.Clamp(temporalLife, 0, maxLife);
 
         actualLife = temporalLife;
+
+        PlayerHealed?.Invoke(actualLife);
     }
     public int GetActualLife()
     {

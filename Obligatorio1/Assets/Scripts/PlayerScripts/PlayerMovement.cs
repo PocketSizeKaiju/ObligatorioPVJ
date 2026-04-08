@@ -7,14 +7,14 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 LastNonZeroDirection => _lastNonZeroDirection;
 
     private float Speed => Settings.Instance.PlayerSpeed;
-    
+
     // #region  Player bounds
     private float PlayerBoundsYMin => Settings.Instance.PlayerBoundsYMin;
     private float PlayerBoundsYMax => Settings.Instance.PlayerBoundsYMax;
     private float PlayerBoundsXMin => Settings.Instance.PlayerBoundsXMin;
     private float PlayerBoundsXMax => Settings.Instance.PlayerBoundsXMax;
     // #endregion
-    
+
     private Vector2 _lastNonZeroDirection;
 
     void Update()
@@ -25,10 +25,10 @@ public class PlayerMovement : MonoBehaviour
     private void UpdateKeyboardInput()
     {
         Vector2 direction = new Vector2(
-            (Keyboard.current.rightArrowKey.isPressed ? 1 : 0) -
-            (Keyboard.current.leftArrowKey.isPressed ? 1 : 0),
-            (Keyboard.current.upArrowKey.isPressed ? 1 : 0) -
-            (Keyboard.current.downArrowKey.isPressed ? 1 : 0)
+            ((Keyboard.current.rightArrowKey.isPressed || Keyboard.current.dKey.isPressed) ? 1 : 0) -
+            ((Keyboard.current.leftArrowKey.isPressed || Keyboard.current.aKey.isPressed) ? 1 : 0),
+            ((Keyboard.current.upArrowKey.isPressed || Keyboard.current.wKey.isPressed) ? 1 : 0) -
+            ((Keyboard.current.downArrowKey.isPressed || Keyboard.current.sKey.isPressed) ? 1 : 0)
         );
 
         Vector3 velocity = (Vector3)(direction.normalized * Speed);

@@ -7,54 +7,42 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 LastNonZeroDirection => _lastNonZeroDirection;
 
     private float Speed => Settings.Instance.PlayerSpeed;
-
+    
+    // #region  Player bounds
+    private float PlayerBoundsYMin => Settings.Instance.PlayerBoundsYMin;
+    private float PlayerBoundsYMax => Settings.Instance.PlayerBoundsYMax;
+    private float PlayerBoundsXMin => Settings.Instance.PlayerBoundsXMin;
+    private float PlayerBoundsXMax => Settings.Instance.PlayerBoundsXMax;
+    // #endregion
+    
     private Vector2 _lastNonZeroDirection;
 
-    // Update is called once per frame
     void Update()
     {
         UpdateKeyboardInput();
-        //UpdateMouseInput();
     }
-
-    /* private void UpdateMouseInput()
-    {
-        if (Mouse.current.leftButton.wasPressedThisFrame)
-        {
-            Debug.Log("click");
-        }
-    } */
 
     private void UpdateKeyboardInput()
     {
+        Vector2 direction = new Vector2(
+            (Keyboard.current.rightArrowKey.isPressed ? 1 : 0) -
+            (Keyboard.current.leftArrowKey.isPressed ? 1 : 0),
+            (Keyboard.current.upArrowKey.isPressed ? 1 : 0) -
+            (Keyboard.current.downArrowKey.isPressed ? 1 : 0)
+        );
+
+        Vector3 velocity = (Vector3)(direction.normalized * Speed);
         Vector3 pos = transform.position;
-        
-        Vector3 direction = Vector2.zero;
 
-        if (Keyboard.current.leftArrowKey.IsPressed())
-        {
-            direction.x += -1;
-        }
-        if (Keyboard.current.rightArrowKey.IsPressed())
-        {
-            direction.x += 1;
-        }
-        if (Keyboard.current.downArrowKey.IsPressed())
-        {
-           direction.y += -1;
-        }
-        if (Keyboard.current.upArrowKey.IsPressed())
-        {
-            direction.y += 1;
-        }
+        pos += velocity * Time.deltaTime;
+        pos.y = Mathf.Clamp(pos.y, PlayerBoundsYMin, PlayerBoundsYMax);
+        pos.x = Mathf.Clamp(pos.x, PlayerBoundsXMin, PlayerBoundsXMax);
 
-        Vector3 velocity = direction.normalized * Speed;
-        transform.position += velocity * Time.deltaTime;
+        transform.position = pos;
 
-        if (direction != Vector3.zero)
+        if (direction != Vector2.zero)
         {
             _lastNonZeroDirection = direction;
         }
-
     }
 }

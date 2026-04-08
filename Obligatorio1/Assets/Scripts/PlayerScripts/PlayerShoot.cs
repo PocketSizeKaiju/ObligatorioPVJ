@@ -8,6 +8,7 @@ public class PlayerShoot : MonoBehaviour
 {
     private GameObject _shotPrefab;
     private float _shootingInterval;
+    private Vector3 _mousePosition;
 
     void Awake()
     {
@@ -25,13 +26,14 @@ public class PlayerShoot : MonoBehaviour
     }
     private void Shoot()
     {
-        Vector2 mousePosition = new Vector2(
-            x: Mouse.current.position.x.ReadValue(),
-            y: Mouse.current.position.y.ReadValue()
-        );
+        Vector3 mousePos = Mouse.current.position.ReadValue();
+        float distance = Mathf.Abs(Camera.main.transform.position.z - transform.position.z);
+        mousePos.z = distance;
+        _mousePosition = Camera.main.ScreenToWorldPoint(mousePos);
+
+        Vector3 direction = _mousePosition - transform.position;
+
         GameObject shotObject = Instantiate(original: _shotPrefab, position: transform.position, rotation: Quaternion.identity);
-        shotObject.GetComponent<PlayerShot>().Init(mousePosition);
+        shotObject.GetComponent<PlayerShot>().Init(direction);
     }
-
-
 }

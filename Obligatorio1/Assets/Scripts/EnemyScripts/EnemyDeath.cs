@@ -24,7 +24,7 @@ public class EnemyDeath : MonoBehaviour
     {
         if (collision.GetComponent<PlayerShot>())
         {
-            GetComponent<Collider2D>().enabled = false; // 🔥 clave
+            GetComponent<Collider2D>().enabled = false;
 
             _enemyManager.CreateEnemyBlood(transform.position);
             Destroy(gameObject);

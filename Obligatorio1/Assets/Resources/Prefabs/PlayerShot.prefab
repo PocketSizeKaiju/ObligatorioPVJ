@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 7556015706451826899}
   - component: {fileID: 4454455052200460378}
   - component: {fileID: 6191977404317326016}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlayerShot
-  m_TagString: Untagged
+  m_TagString: Laser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80,8 +80,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -759047119
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 8020143640844766479, guid: 0e510be203e0278478171144c85378af, type: 3}

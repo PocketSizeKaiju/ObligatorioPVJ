@@ -18,12 +18,20 @@ public class EnemyDeath : MonoBehaviour
             return;
         }
 
-        if (ScoreManager.Instance != null)
-        {
-            ScoreManager.Instance.AddPoints(_scoreValue);
-        }
+        ScoreManager.Instance?.AddPoints(_scoreValue);
 
         _enemyManager.CreateEnemyBlood(transform.position);
         Destroy(gameObject);
+    }
+
+    void Update()
+    {
+        if (transform.position.x > 12
+            || transform.position.x < -10
+            || transform.position.y > 8
+            || transform.position.y < -7)
+        {
+            Destroy(gameObject);
+        }
     }
 }

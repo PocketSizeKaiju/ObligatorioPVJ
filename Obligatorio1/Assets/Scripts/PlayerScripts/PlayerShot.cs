@@ -15,6 +15,13 @@ public class PlayerShot : MonoBehaviour
     {
         Vector3 velocity = _direction * Settings.Instance.PlayerShotSpeed;
         transform.position += velocity * Time.deltaTime;
+        if (transform.position.x > 12
+        || transform.position.x < -10
+        || transform.position.y > 8
+        || transform.position.y < -7)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)

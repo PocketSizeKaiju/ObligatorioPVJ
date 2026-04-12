@@ -5,6 +5,7 @@ public class EnemyManager : MonoBehaviour
 {
     private GameObject _enemyPrefab;
     private GameObject _enemyBloodPrefab;
+    public Sprite[] _horseSprites;
 
     private float _createEnemyInterval;
 
@@ -41,9 +42,7 @@ public class EnemyManager : MonoBehaviour
     private void CreateEnemy()
     {
         GameObject newEnemy = Instantiate(_enemyPrefab);
-        newEnemy.transform.position = new Vector2(
-            x: 10,
-            y: Random.Range(-4, 4));
+        newEnemy = CreateHorseEnemy(newEnemy);
 
         newEnemy.GetComponent<EnemyDeath>().Init(this);
     }
@@ -61,5 +60,18 @@ public class EnemyManager : MonoBehaviour
     public void CreateEnemyBlood(Vector2 position)
     {
         GameObject blood = Instantiate(original: _enemyBloodPrefab, position: position, rotation: Quaternion.identity);
+    }
+
+    private GameObject CreateHorseEnemy(GameObject newEnemy)
+    {
+        SpriteRenderer spriteR = newEnemy.GetComponent<SpriteRenderer>();
+        int index = Random.Range(0, 6);
+        newEnemy.GetComponent<EnemyChase>().UpdateChasing(index > 3);
+        spriteR.sprite = _horseSprites[index];
+        newEnemy.transform.position = new Vector2(
+            x: 10,
+            y: Random.Range(-5, -0.5f));
+
+        return newEnemy;
     }
 }

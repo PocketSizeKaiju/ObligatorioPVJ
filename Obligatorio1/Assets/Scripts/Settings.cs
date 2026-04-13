@@ -11,7 +11,6 @@ public class Settings : ScriptableObject
         {
             if (_instance == null)
             {
-                // Busca el archivo "Settings" dentro de cualquier carpeta "Resources"
                 _instance = Resources.Load<Settings>("Settings");
 
                 if (_instance == null)
@@ -49,5 +48,12 @@ public class Settings : ScriptableObject
     public float PlayerBoundsXMax = 6.40951f;
 
     [Header("Economy")]
-    public int CoinCount; 
+    public int CoinCount;
+
+    [Header("Enemy bounds")]
+    public float EnemyFloorBoundsMax = -0.5f;
+    public float EnemyFloorBoundsMin = -5;
+    public float EnemySkyBoundsMax = 7.5f;
+    public float EnemySkyBoundsMin = 0.4f;
+
 }

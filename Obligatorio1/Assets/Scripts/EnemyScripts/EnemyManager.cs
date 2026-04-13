@@ -1,24 +1,20 @@
 using System.Collections;
 using UnityEngine;
+using System.Linq;
 
 public class EnemyManager : MonoBehaviour
 {
-    private GameObject _enemyPrefab;
+    private GameObject[] _enemiesPrefab;
     private GameObject _enemyBloodPrefab;
     public Sprite[] _horseSprites;
 
     private float _createEnemyInterval;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _enemyPrefab = Resources.Load<GameObject>("Prefabs/Enemy");
-        if (_enemyPrefab == null)
-        {
-            throw new UnityException("Couldn't load Enemy prefab from Resources!");
-        }
-
+        _enemiesPrefab = Resources.LoadAll<GameObject>("Prefabs/Enemies").OrderBy(go => go.name).ToArray() ?? throw new UnityException("Couldn't load Enemy prefab from Resources!");
         _enemyBloodPrefab = Resources.Load<GameObject>("Prefabs/EnemyBlood");
+        Debug.Log(_enemiesPrefab.Length);
 
         for (int i = 0; i < Settings.Instance.StartingEnemyCount; i++)
         {
@@ -41,8 +37,21 @@ public class EnemyManager : MonoBehaviour
 
     private void CreateEnemy()
     {
-        GameObject newEnemy = Instantiate(_enemyPrefab);
-        newEnemy = CreateHorseEnemy(newEnemy);
+
+        int percentage = Random.Range(0, 10);
+        GameObject newEnemy;
+        if (percentage <= 6)
+        {
+            Debug.Log("Creating horse");
+            newEnemy = Instantiate(_enemiesPrefab[0]);
+            newEnemy = CreateHorseEnemy(newEnemy);
+        }
+        else
+        {
+            Debug.Log("Creating crow");
+            newEnemy = Instantiate(_enemiesPrefab[1]);
+            newEnemy = CreateCrowEnemy(newEnemy);
+        }
 
         newEnemy.GetComponent<EnemyDeath>().Init(this);
     }
@@ -70,7 +79,18 @@ public class EnemyManager : MonoBehaviour
         spriteR.sprite = _horseSprites[index];
         newEnemy.transform.position = new Vector2(
             x: 10,
-            y: Random.Range(-5, -0.5f));
+            y: Random.Range(Settings.Instance.EnemyFloorBoundsMax, Settings.Instance.EnemyFloorBoundsMin));
+
+        return newEnemy;
+    }
+
+    private GameObject CreateCrowEnemy(GameObject newEnemy)
+    {
+        SpriteRenderer spriteR = newEnemy.GetComponent<SpriteRenderer>();
+        newEnemy.GetComponent<EnemyChase>().UpdateChasing(true);
+        newEnemy.transform.position = new Vector2(
+            x: Random.Range(5, 10),
+            y: Random.Range(Settings.Instance.EnemySkyBoundsMax, Settings.Instance.EnemySkyBoundsMin));
 
         return newEnemy;
     }

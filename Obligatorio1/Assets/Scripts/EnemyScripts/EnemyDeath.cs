@@ -15,11 +15,13 @@ public class EnemyDeath : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log(_health);
-        if (collision.GetComponent<PlayerShot>() == null || _health > 0)
-        {
-            _health--;
+        if (collision.GetComponent<PlayerShot>() == null)
             return;
-        }
+
+        _health--;
+
+        if (_health > 0)
+            return;
 
         ScoreManager.Instance?.AddPoints(_scoreValue);
 

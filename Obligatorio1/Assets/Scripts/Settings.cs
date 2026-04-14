@@ -56,4 +56,10 @@ public class Settings : ScriptableObject
     public float EnemySkyBoundsMax = 7.5f;
     public float EnemySkyBoundsMin = 0.4f;
 
-}
+    [Header("Sound modifiers")]
+    public float lowPitchRange = .75F;
+    public float highPitchRange = 1.5F;
+    public float velToVol = .2F;
+    public float velocityClipSplit = 10F;
+
+} 

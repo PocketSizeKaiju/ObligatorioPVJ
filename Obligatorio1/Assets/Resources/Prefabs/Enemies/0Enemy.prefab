@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6760212938300074521}
   - component: {fileID: 6904149055126221963}
   - component: {fileID: 1499930810785207383}
+  - component: {fileID: 6905221524835043843}
   m_Layer: 0
   m_Name: 0Enemy
   m_TagString: Untagged
@@ -187,6 +188,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   _scoreValue: 100
   _health: 0
+  _summonOnHit: 0
+  _enemyToSummon: {fileID: 0}
 --- !u!82 &6904149055126221963
 AudioSource:
   m_ObjectHideFlags: 0
@@ -298,3 +301,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::playSound
   sound: {fileID: 8300000, guid: 46755ea0f92db8847ba6cfb160b9c0c1, type: 3}
   playOnAwake: 0
+--- !u!114 &6905221524835043843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4922689335499856223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d525cab590304dd3b3fff6dc9702ccc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageTouchingPlayer
+  damageAmount: 1

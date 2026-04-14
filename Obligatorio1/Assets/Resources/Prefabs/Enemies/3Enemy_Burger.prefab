@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 820042243517741656}
   - component: {fileID: 7629356005312712662}
   - component: {fileID: 4694887484857241466}
+  - component: {fileID: -4698475879866640137}
   m_Layer: 0
   m_Name: 3Enemy_Burger
   m_TagString: Untagged
@@ -210,6 +211,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   _scoreValue: 200
   _health: 4
+  _summonOnHit: 0
+  _enemyToSummon: {fileID: 0}
 --- !u!82 &7629356005312712662
 AudioSource:
   m_ObjectHideFlags: 0
@@ -321,3 +324,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlaySound
   sound: {fileID: 8300000, guid: 46755ea0f92db8847ba6cfb160b9c0c1, type: 3}
   playOnAwake: 0
+--- !u!114 &-4698475879866640137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7187970881156740066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d525cab590304dd3b3fff6dc9702ccc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageTouchingPlayer
+  damageAmount: 2

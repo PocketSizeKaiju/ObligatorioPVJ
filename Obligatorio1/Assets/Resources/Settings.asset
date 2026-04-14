@@ -18,7 +18,7 @@ MonoBehaviour:
   PlayerShotSpeed: 8
   StartingEnemyCount: 0
   EnemySpeed: 1
-  BaseCreateEnemyInterval: 5
+  BaseCreateEnemyInterval: 3
   CreateEnemyIntervalDecreasePerSecond: 0.03
   MinCreateEnemyInterval: 0.4
   ObstacleSpawnInterval: 5

@@ -7,15 +7,21 @@ public class PlaySound : MonoBehaviour
 
 
     private AudioSource source;
-    private readonly float lowPitchRange = Settings.Instance.lowPitchRange;
-    private readonly float highPitchRange = Settings.Instance.highPitchRange;
-    private readonly float velToVol = Settings.Instance.velToVol;
-    private readonly float velocityClipSplit = Settings.Instance.velocityClipSplit;
+    private float lowPitchRange;
+    private float highPitchRange;
+    private float velToVol;
+    private float velocityClipSplit;
 
 
     void Awake()
     {
         source = GetComponent<AudioSource>();
+
+        lowPitchRange = Settings.Instance.lowPitchRange;
+        highPitchRange = Settings.Instance.highPitchRange;
+        velToVol = Settings.Instance.velToVol;
+        velocityClipSplit = Settings.Instance.velocityClipSplit;
+
         if (playOnAwake) PlayOnAwake();
     }
 

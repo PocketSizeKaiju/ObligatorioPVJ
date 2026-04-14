@@ -16,20 +16,22 @@ public class EnemyManager : MonoBehaviour
 
     void Start()
     {
-        _enemiesPrefab = Resources.LoadAll<GameObject>("Prefabs/Enemies").OrderBy(go => go.name).ToArray() ?? throw new UnityException("Couldn't load Enemy prefab from Resources!");
-        _obstaclesPrefab = Resources.LoadAll<GameObject>("Prefabs/Obstacles").OrderBy(go => go.name).ToArray() ?? throw new UnityException("Couldn't load Obstacles prefab from Resources!");
-        _enemyBloodPrefab = Resources.Load<GameObject>("Prefabs/EnemyBlood");
-
         for (int i = 0; i < Settings.Instance.StartingEnemyCount; i++)
         {
             CreateEnemy();
         }
 
-        _createEnemyInterval = Settings.Instance.BaseCreateEnemyInterval;
-        _nextBurstTime = Settings.Instance.DifficultyBurstInterval;
-
         StartCoroutine(CreateEnemiesCoroutine());
         StartCoroutine(CreateObstaclesCoroutine());
+    }
+    private void Awake()
+    {
+        _enemiesPrefab = Resources.LoadAll<GameObject>("Prefabs/Enemies").OrderBy(go => go.name).ToArray() ?? throw new UnityException("Couldn't load Enemy prefab from Resources!");
+        _obstaclesPrefab = Resources.LoadAll<GameObject>("Prefabs/Obstacles").OrderBy(go => go.name).ToArray() ?? throw new UnityException("Couldn't load Obstacles prefab from Resources!");
+        _enemyBloodPrefab = Resources.Load<GameObject>("Prefabs/EnemyBlood");
+
+        _createEnemyInterval = Settings.Instance.BaseCreateEnemyInterval;
+        _nextBurstTime = Settings.Instance.DifficultyBurstInterval;
     }
 
     private IEnumerator CreateEnemiesCoroutine()
@@ -69,8 +71,6 @@ public class EnemyManager : MonoBehaviour
             + Mathf.FloorToInt(_timeAlive / Settings.Instance.BurstCountIncreaseEverySeconds);
 
         burstCount = Mathf.Min(burstCount, Settings.Instance.MaxBurstEnemyCount);
-
-        Debug.Log($"[Difficulty Spike] t={_timeAlive:F0}s — spawning burst of {burstCount} enemies");
 
         for (int i = 0; i < burstCount; i++)
         {

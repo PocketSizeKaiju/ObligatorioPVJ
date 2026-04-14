@@ -9,34 +9,32 @@ public class EnemyManager : MonoBehaviour
     private GameObject _enemyBloodPrefab;
     public Sprite[] _horseSprites;
 
+    private float _timeAlive = 0f;
+
     private float _createEnemyInterval;
+    private float _nextBurstTime;
 
     void Start()
     {
-        _enemiesPrefab = Resources.LoadAll<GameObject>("Prefabs/Enemies").OrderBy(go => go.name).ToArray() ?? throw new UnityException("Couldn't load Enemy prefab from Resources!");
-        _obstaclesPrefab = Resources.LoadAll<GameObject>("Prefabs/Obstacles").OrderBy(go => go.name).ToArray() ?? throw new UnityException("Couldn't load Obstacles prefab from Resources!");
-        _enemyBloodPrefab = Resources.Load<GameObject>("Prefabs/EnemyBlood");
-        Debug.Log(_enemiesPrefab.Length);
-
         for (int i = 0; i < Settings.Instance.StartingEnemyCount; i++)
         {
             CreateEnemy();
         }
 
-        _createEnemyInterval = Settings.Instance.BaseCreateEnemyInterval;
         StartCoroutine(CreateEnemiesCoroutine());
         StartCoroutine(CreateObstaclesCoroutine());
     }
+    private void Awake()
+    {
+        _enemiesPrefab = Resources.LoadAll<GameObject>("Prefabs/Enemies").OrderBy(go => go.name).ToArray() ?? throw new UnityException("Couldn't load Enemy prefab from Resources!");
+        _obstaclesPrefab = Resources.LoadAll<GameObject>("Prefabs/Obstacles").OrderBy(go => go.name).ToArray() ?? throw new UnityException("Couldn't load Obstacles prefab from Resources!");
+        _enemyBloodPrefab = Resources.Load<GameObject>("Prefabs/EnemyBlood");
+
+        _createEnemyInterval = Settings.Instance.BaseCreateEnemyInterval;
+        _nextBurstTime = Settings.Instance.DifficultyBurstInterval;
+    }
 
     private IEnumerator CreateEnemiesCoroutine()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(5);
-            CreateObstacle();
-        }
-    }
-    private IEnumerator CreateObstaclesCoroutine()
     {
         while (true)
         {
@@ -44,41 +42,93 @@ public class EnemyManager : MonoBehaviour
             CreateEnemy();
         }
     }
-
-    private void CreateEnemy()
+    private IEnumerator CreateObstaclesCoroutine()
     {
-
-        int percentage = Random.Range(0, 10);
-        GameObject newEnemy;
-        if (percentage <= 6)
+        while (true)
         {
-            if (percentage <= 2)
-            {
-                if (percentage >= 2)
-                {
-                    Debug.Log("Creating burger");
-                    newEnemy = Instantiate(_enemiesPrefab[3]);
-                    newEnemy = CreateBurgerEnemy(newEnemy);
-                }
-                else
-                {
-                    Debug.Log("Creating piggy");
-                    newEnemy = Instantiate(_enemiesPrefab[2]);
-                    newEnemy = CreatePigEnemy(newEnemy);
-                }
-            }
-            else
-            {
-                Debug.Log("Creating horse");
-                newEnemy = Instantiate(_enemiesPrefab[0]);
-                newEnemy = CreateHorseEnemy(newEnemy);
-            }
+            yield return new WaitForSeconds(Settings.Instance.ObstacleSpawnInterval);
+            CreateObstacle();
         }
-        else
+    }
+
+    void Update()
+    {
+        _timeAlive += Time.deltaTime;
+
+        _createEnemyInterval -= Time.deltaTime * Settings.Instance.CreateEnemyIntervalDecreasePerSecond;
+        _createEnemyInterval = Mathf.Max(_createEnemyInterval, Settings.Instance.MinCreateEnemyInterval);
+
+        if (_timeAlive >= _nextBurstTime)
+        {
+            _nextBurstTime += Settings.Instance.DifficultyBurstInterval;
+            StartCoroutine(SpawnBurstCoroutine());
+        }
+    }
+
+    private IEnumerator SpawnBurstCoroutine()
+    {
+        int burstCount = Settings.Instance.BaseBurstEnemyCount
+            + Mathf.FloorToInt(_timeAlive / Settings.Instance.BurstCountIncreaseEverySeconds);
+
+        burstCount = Mathf.Min(burstCount, Settings.Instance.MaxBurstEnemyCount);
+
+        for (int i = 0; i < burstCount; i++)
+        {
+            CreateEnemy(forceDifficult: true);
+            yield return new WaitForSeconds(Settings.Instance.BurstSpawnDelay);
+        }
+    }
+
+    private float DifficultyFactor()
+    {
+        return Mathf.Clamp01(_timeAlive / Settings.Instance.DifficultyMaxRampTime);
+    }
+
+    private void CreateEnemy(bool forceDifficult = false)
+    {
+        float t = DifficultyFactor();
+
+        float weightHorse = Mathf.Lerp(6f, 1f, t);
+        float weightCrow = Mathf.Lerp(1f, 4f, t);
+        float weightPig = Mathf.Lerp(2f, 1f, t);
+        float weightBurger = Mathf.Lerp(0f, 4f, t);
+
+        if (forceDifficult)
+        {
+            weightHorse *= 0.3f;
+            weightPig *= 0.3f;
+            weightCrow *= 2f;
+            weightBurger *= 2f;
+        }
+
+        float total = weightHorse + weightCrow + weightPig + weightBurger;
+        float roll = Random.Range(0f, total);
+
+        GameObject newEnemy;
+
+        if (roll < weightHorse)
+        {
+            Debug.Log("Creating horse");
+            newEnemy = Instantiate(_enemiesPrefab[0]);
+            newEnemy = CreateHorseEnemy(newEnemy);
+        }
+        else if (roll < weightHorse + weightCrow)
         {
             Debug.Log("Creating crow");
             newEnemy = Instantiate(_enemiesPrefab[1]);
             newEnemy = CreateCrowEnemy(newEnemy);
+        }
+        else if (roll < weightHorse + weightCrow + weightPig)
+        {
+            Debug.Log("Creating piggy");
+            newEnemy = Instantiate(_enemiesPrefab[2]);
+            newEnemy = CreatePigEnemy(newEnemy);
+        }
+        else
+        {
+            Debug.Log("Creating burger");
+            newEnemy = Instantiate(_enemiesPrefab[3]);
+            newEnemy = CreateBurgerEnemy(newEnemy);
         }
 
         newEnemy.GetComponent<EnemyDeath>().Init(this);
@@ -86,7 +136,6 @@ public class EnemyManager : MonoBehaviour
 
     private void CreateObstacle()
     {
-
         int percentage = Random.Range(0, 10);
         GameObject newObstacle;
         if (percentage <= 6)
@@ -105,16 +154,6 @@ public class EnemyManager : MonoBehaviour
             y: Random.Range(Settings.Instance.EnemyFloorBoundsMax, Settings.Instance.EnemyFloorBoundsMin));
 
         newObstacle.GetComponent<EnemyDeath>().Init(this);
-    }
-
-    void Update()
-    {
-        _createEnemyInterval -= Time.deltaTime * Settings.Instance.CreateEnemyIntervalDecreasePerSecond;
-
-        if (_createEnemyInterval < Settings.Instance.MinCreateEnemyInterval)
-        {
-            _createEnemyInterval = Settings.Instance.MinCreateEnemyInterval;
-        }
     }
 
     public void CreateEnemyBlood(Vector2 position)

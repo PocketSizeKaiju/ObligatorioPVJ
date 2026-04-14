@@ -36,6 +36,24 @@ public class Settings : ScriptableObject
     public float CreateEnemyIntervalDecreasePerSecond = 0.1f;
     [Tooltip("Defines the minimum of time of which the enemies would be spawn")]
     public float MinCreateEnemyInterval = 0.3f;
+    [Tooltip("Fixed interval (seconds) between obstacle spawns")]
+    public float ObstacleSpawnInterval = 5f;
+
+    [Header("Difficulty Ramp")]
+    [Tooltip("Seconds of survival until difficulty is fully maxed out")]
+    public float DifficultyMaxRampTime = 120f;
+
+    [Header("Difficulty Spike Bursts")]
+    [Tooltip("A burst of hard enemies fires every this many seconds")]
+    public float DifficultyBurstInterval = 30f;
+    [Tooltip("How many enemies spawn in the first burst")]
+    public int BaseBurstEnemyCount = 3;
+    [Tooltip("Burst grows by 1 enemy for every N seconds survived")]
+    public float BurstCountIncreaseEverySeconds = 30f;
+    [Tooltip("Maximum enemies in a single burst")]
+    public int MaxBurstEnemyCount = 10;
+    [Tooltip("Seconds between each enemy spawn within a burst")]
+    public float BurstSpawnDelay = 0.4f;
 
     [Header("Player bounds")]
     [Tooltip("Defines players bounds")]
@@ -62,4 +80,4 @@ public class Settings : ScriptableObject
     public float velToVol = .2F;
     public float velocityClipSplit = 10F;
 
-} 
+}

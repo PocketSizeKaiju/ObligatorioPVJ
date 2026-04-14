@@ -197,6 +197,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   _scoreValue: 100
   _health: 1000000
+  _summonOnHit: 1
+  _enemyToSummon: {fileID: 3863006996809330921, guid: 0919595a5d390164ea57a5a6e995aeaf, type: 3}
 --- !u!82 &-417025427644103247
 AudioSource:
   m_ObjectHideFlags: 0

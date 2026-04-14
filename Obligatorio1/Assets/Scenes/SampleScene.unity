@@ -306,8 +306,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28da8f6f657c0b94d950d55d795572e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Scroller
-  _img: {fileID: 800543967}
-  _x: 0.1
+  _img: {fileID: 0}
+  _x: 0
   _y: 0
 --- !u!114 &800543967
 MonoBehaviour:
@@ -394,8 +394,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28da8f6f657c0b94d950d55d795572e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Scroller
-  _img: {fileID: 985606138}
-  _x: 0.15
+  _img: {fileID: 0}
+  _x: 0
   _y: 0
 --- !u!114 &985606138
 MonoBehaviour:

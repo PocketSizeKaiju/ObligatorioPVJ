@@ -3,6 +3,7 @@ using UnityEngine;
 public class EnemyDeath : MonoBehaviour
 {
     [SerializeField] private int _scoreValue = 100;
+    [SerializeField] private int _health = 0;
 
     private EnemyManager _enemyManager;
 
@@ -13,10 +14,14 @@ public class EnemyDeath : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log(_health);
         if (collision.GetComponent<PlayerShot>() == null)
-        {
             return;
-        }
+
+        _health--;
+
+        if (_health > 0)
+            return;
 
         ScoreManager.Instance?.AddPoints(_scoreValue);
 

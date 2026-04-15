@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: fde6703e50e374248b667624080d121c
+guid: 39f8b80c2464946b5a8cbf97b62c95f9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3518203238701728969
-    second: Play Button - Compressed_0
+      213: -1437307585935806318
+    second: pressedbuttonbrownv2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -48,7 +48,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Play Button - Compressed_0
+      name: pressedbuttonbrownv2_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 464
-        height: 216
+        x: 267
+        y: 390
+        width: 546
+        height: 254
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9c40272943b23d030800000000000000
-      internalID: 3518203238701728969
+      spriteID: 2907253ad58ad0ce0800000000000000
+      internalID: -1437307585935806318
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Play Button - Compressed_0: 3518203238701728969
+      pressedbuttonbrownv2_0: -1437307585935806318
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

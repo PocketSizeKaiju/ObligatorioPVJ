@@ -1,15 +1,16 @@
-using System.Diagnostics;
-using System.Reflection;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class ClickyButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     [SerializeField] private Image _img;
     [SerializeField] private Sprite _default, _pressed;
     [SerializeField] private AudioClip _compressClip, _uncompressClip;
     [SerializeField] private AudioSource _source;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private string _sceneToLoad;
     
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -21,9 +22,10 @@ public class ClickyButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     {
         _img.sprite = _default;
         _source.PlayOneShot(_uncompressClip);
+        IWasClicked();
     }
     public void IWasClicked()
     {
-        Debug.Log("Clicked!");
+        SceneManager.LoadScene(_sceneToLoad);
     }
 }

@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: b4c5eff8ab4501a489e3562d8b230bff
+guid: 14de710c5c7a8c94a8bf7f3e475a94c5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3165036557013611141
-    second: GrassLand_Stone_1_0
+      213: -2305958526138685017
+    second: tear_0
+  - first:
+      213: 9049280165062839601
+    second: tear_1
+  - first:
+      213: -4493547944847221324
+    second: tear_2
+  - first:
+      213: -7938313360570828304
+    second: tear_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -113,23 +122,111 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GrassLand_Stone_1_0
+      name: tear_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 4
         y: 0
-        width: 16
-        height: 7
+        width: 11
+        height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 582fbe1caf77ceb20800000000000000
-      internalID: 3165036557013611141
+      spriteID: 7a968be10f69fffd0800000000000000
+      internalID: -2305958526138685017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tear_1
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 0
+        width: 11
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13d0f8f6d50859d70800000000000000
+      internalID: 9049280165062839601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tear_2
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 0
+        width: 11
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bdd136b3f5b3a1c0800000000000000
+      internalID: -4493547944847221324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tear_3
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 11
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f9307bbe0275d190800000000000000
+      internalID: -7938313360570828304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tear_4
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 11
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4e84b6146ff0484bb579a64b23ae91b
+      internalID: -551932806
       vertices: []
       indices: 
       edges: []
@@ -138,7 +235,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 229b4f741db7fda4b9b5364ba960829f
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +245,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      GrassLand_Stone_1_0: 3165036557013611141
+      tear_0: -2305958526138685017
+      tear_1: 9049280165062839601
+      tear_2: -4493547944847221324
+      tear_3: -7938313360570828304
+      tear_4: -551932806
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

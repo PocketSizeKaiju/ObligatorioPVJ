@@ -13,12 +13,31 @@ MonoBehaviour:
   m_Name: Settings
   m_EditorClassIdentifier: Assembly-CSharp::Settings
   PlayerSpeed: 6
-  CoinCount: 10
-  StartingEnemyCount: 4
   PlayerForce: 10
-  EnemySpeed: 1
   PlayerShootInterval: 0.5
   PlayerShotSpeed: 8
-  BaseCreateEnemyInterval: 4
+  StartingEnemyCount: 0
+  EnemySpeed: 1
+  BaseCreateEnemyInterval: 3
   CreateEnemyIntervalDecreasePerSecond: 0.03
   MinCreateEnemyInterval: 0.4
+  ObstacleSpawnInterval: 5
+  DifficultyMaxRampTime: 120
+  DifficultyBurstInterval: 30
+  BaseBurstEnemyCount: 3
+  BurstCountIncreaseEverySeconds: 30
+  MaxBurstEnemyCount: 10
+  BurstSpawnDelay: 0.4
+  PlayerBoundsYMin: -4.580837
+  PlayerBoundsYMax: -0.580837
+  PlayerBoundsXMin: -8.59049
+  PlayerBoundsXMax: 6.40951
+  CoinCount: 10
+  EnemyFloorBoundsMax: -0.5
+  EnemyFloorBoundsMin: -5
+  EnemySkyBoundsMax: 7.5
+  EnemySkyBoundsMin: 0.4
+  lowPitchRange: 0.75
+  highPitchRange: 1.5
+  velToVol: 0.2
+  velocityClipSplit: 10

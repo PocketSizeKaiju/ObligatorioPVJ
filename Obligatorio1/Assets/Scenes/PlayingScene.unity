@@ -840,6 +840,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1714217394405220524, guid: 57a2ef651b6aade4f97534d31f61c674, type: 3}
+      propertyPath: actualLife
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1714217394405220524, guid: 57a2ef651b6aade4f97534d31f61c674, type: 3}
+      propertyPath: playerExplosion
+      value: 
+      objectReference: {fileID: 2110322478740823129, guid: c09069ab156bf1a4389d4e4c8688b09d, type: 3}
     - target: {fileID: 2923351182280212914, guid: 57a2ef651b6aade4f97534d31f61c674, type: 3}
       propertyPath: m_Name
       value: Player

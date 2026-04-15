@@ -38,6 +38,12 @@ public class PlaySound : MonoBehaviour
         source.PlayOneShot(sound, hitVol);
     }
 
+    public void PlaySpecific(AudioClip clip, float volume = 1f)
+    {
+        source.pitch = Random.Range(lowPitchRange, highPitchRange);
+        source.PlayOneShot(clip, volume);
+    }
+    
     void PlayOnAwake()
     {
         source.pitch = Random.Range(lowPitchRange, highPitchRange);

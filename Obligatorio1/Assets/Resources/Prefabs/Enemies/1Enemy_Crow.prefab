@@ -338,3 +338,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DamageTouchingPlayer
   damageAmount: 1
   _destroyOnImpact: 1
+  sound: {fileID: 8300000, guid: 5b15a7a43dbc77c42bcaecd516ba3d4f, type: 3}

@@ -40,7 +40,7 @@ public class ScoreManager : MonoBehaviour
         ScoreChanged?.Invoke(CurrentScore);
     }
 
-    public void HighScoreUpdate(TMP_Text finalScoreText, TMP_Text highScoreText)
+    public void HighScoreUpdate(TMP_Text finalScoreText)
     {
         int currentScore = CurrentScore;
 
@@ -59,14 +59,13 @@ public class ScoreManager : MonoBehaviour
         scores.Add(currentScore);
         scores.Sort((a, b) => b.CompareTo(a));
 
-        if (scores.Count > 3)
-            scores = scores.GetRange(0, 3);
+        if (scores.Count > 6)
+            scores = scores.GetRange(0, 6);
 
         string result = string.Join(",", scores);
         PlayerPrefs.SetString("HighScores", result);
         PlayerPrefs.Save();
 
         finalScoreText.text = currentScore.ToString();
-        highScoreText.text = scores[0].ToString(); 
     }
 }

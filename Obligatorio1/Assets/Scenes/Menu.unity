@@ -1271,8 +1271,8 @@ MonoBehaviour:
   _pressed: {fileID: -98188196839303540, guid: 3f0ee6a4ea4f0461fbf63ab3d14eb9b8, type: 3}
   _compressClip: {fileID: 8300000, guid: 52d8604da37114644bd756ae30cc6db7, type: 3}
   _uncompressClip: {fileID: 8300000, guid: 38cfe6a35496b4dec93539db18bc8418, type: 3}
-  _source: {fileID: 0}
-  _sceneToLoad: SampleScene
+  _source: {fileID: 1902379700}
+  _sceneToLoad: PlayingScene
 --- !u!1 &2145408255
 GameObject:
   m_ObjectHideFlags: 0

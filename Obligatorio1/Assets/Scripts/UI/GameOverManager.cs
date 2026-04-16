@@ -8,6 +8,7 @@ public class GameOverManager : MonoBehaviour
     public GameObject scoresGroup;
     void Start()
     {
+        Time.timeScale = 1.0f;
         ScoreManager.Instance.HighScoreUpdate(finalScoreText);
         AddScoreBoardScores();
     }

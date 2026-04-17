@@ -7,6 +7,7 @@ public class PlayerLife : MonoBehaviour
     public Action<int> PlayerHealed;
     [SerializeField] private int maxLife;
     [SerializeField] private int actualLife;
+    [SerializeField] private GameObject playerExplosion;
 
     private void Awake()
     {
@@ -32,7 +33,13 @@ public class PlayerLife : MonoBehaviour
     private void DestroyPlayer()
     {
         // Por ahora, destruimos el objeto del jugador.
+        CreatePlayerExplosion();
         Destroy(gameObject);
+    }
+
+    public void CreatePlayerExplosion()
+    {
+        GameObject boom = Instantiate(original: playerExplosion, position: transform.position, rotation: Quaternion.identity);
     }
 
     public void Heal(int healAmount)

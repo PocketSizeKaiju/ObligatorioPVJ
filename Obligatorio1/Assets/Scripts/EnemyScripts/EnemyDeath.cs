@@ -31,7 +31,7 @@ public class EnemyDeath : MonoBehaviour
                 if (percentage >= 8)
                 {
                     Debug.Log("Summon enemy");
-                    summonEnemy();
+                    SummonEnemy();
                 } else
                 {
                     Debug.Log("Summon good");
@@ -58,7 +58,7 @@ public class EnemyDeath : MonoBehaviour
         }
     }
 
-    private void summonEnemy()
+    private void SummonEnemy()
     {
         GameObject newEnemy = Instantiate(_enemyToSummon);
         newEnemy.GetComponent<EnemyChase>().UpdateChasing(true);

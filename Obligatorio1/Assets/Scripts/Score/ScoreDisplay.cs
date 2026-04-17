@@ -9,6 +9,8 @@ public class ScoreDisplay : MonoBehaviour
     private void Awake()
     {
         scoreText = GetComponent<TMP_Text>();
+
+        DontDestroyOnLoad(this.gameObject);
     }
 
     private void Start()

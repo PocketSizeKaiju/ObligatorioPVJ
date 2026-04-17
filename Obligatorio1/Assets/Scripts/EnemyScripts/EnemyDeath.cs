@@ -6,6 +6,7 @@ public class EnemyDeath : MonoBehaviour
     [SerializeField] private int _health = 0;
     [SerializeField] private bool _summonOnHit;
     [SerializeField] private GameObject _enemyToSummon;
+    [SerializeField] private GameObject _coinToSummon;
 
     private EnemyManager _enemyManager;
 
@@ -32,9 +33,11 @@ public class EnemyDeath : MonoBehaviour
                 {
                     Debug.Log("Summon enemy");
                     SummonEnemy();
-                } else
+                }
+                else if (percentage >= 2)
                 {
                     Debug.Log("Summon good");
+                    SummonCoin();
                 }
                 _summonOnHit = false; //oh no?
             }
@@ -64,5 +67,11 @@ public class EnemyDeath : MonoBehaviour
         newEnemy.GetComponent<EnemyChase>().UpdateChasing(true);
         newEnemy.transform.position = transform.position;
         newEnemy.GetComponent<EnemyDeath>().Init(_enemyManager);
+    }
+
+    private void SummonCoin()
+    {
+        GameObject newEnemy = Instantiate(_coinToSummon);
+        newEnemy.transform.position = transform.position + new Vector3(-2, -2, -2);
     }
 }

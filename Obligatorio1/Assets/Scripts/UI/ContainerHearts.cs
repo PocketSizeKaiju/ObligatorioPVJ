@@ -4,7 +4,7 @@ using UnityEngine.InputSystem; // 1. Necesario para detectar el teclado
 public class ContainerHearts : MonoBehaviour
 {
     [SerializeField] private HeartsBarUI[] hearts;
-    [SerializeField] private PlayerLife playerLife;
+    private PlayerLife playerLife;
 
     private void Start()
     {

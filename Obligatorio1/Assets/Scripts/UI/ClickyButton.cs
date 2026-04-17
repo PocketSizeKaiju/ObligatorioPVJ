@@ -11,7 +11,8 @@ public class ClickyButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     [SerializeField] private AudioClip _compressClip, _uncompressClip;
     [SerializeField] private AudioSource _source;
     [SerializeField] private string _sceneToLoad;
-    
+    public bool resetScore;
+
     public void OnPointerDown(PointerEventData eventData)
     {
         _img.sprite = _pressed;
@@ -26,6 +27,8 @@ public class ClickyButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     }
     public void IWasClicked()
     {
+        if (resetScore)
+            ScoreManager.Instance.ResetScore();
         SceneManager.LoadScene(_sceneToLoad);
     }
 }

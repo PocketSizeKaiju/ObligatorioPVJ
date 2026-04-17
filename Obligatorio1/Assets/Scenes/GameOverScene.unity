@@ -1513,6 +1513,7 @@ MonoBehaviour:
   _uncompressClip: {fileID: 8300000, guid: 38cfe6a35496b4dec93539db18bc8418, type: 3}
   _source: {fileID: 1306095528}
   _sceneToLoad: PlayingScene
+  resetScore: 1
 --- !u!114 &1306095530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2032,6 +2033,7 @@ MonoBehaviour:
   _uncompressClip: {fileID: 8300000, guid: 38cfe6a35496b4dec93539db18bc8418, type: 3}
   _source: {fileID: 1533686421}
   _sceneToLoad: Menu
+  resetScore: 1
 --- !u!1 &1772814721
 GameObject:
   m_ObjectHideFlags: 0

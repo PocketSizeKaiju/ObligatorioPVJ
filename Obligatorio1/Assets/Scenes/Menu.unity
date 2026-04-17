@@ -131,8 +131,9 @@ GameObject:
   - component: {fileID: 43397784}
   - component: {fileID: 43397783}
   - component: {fileID: 43397782}
+  - component: {fileID: 43397785}
   m_Layer: 0
-  m_Name: Settings Image (1)
+  m_Name: QuitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,7 +155,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -352.98486, y: 166.70703}
+  m_AnchoredPosition: {x: 338.90698, y: 166.70703}
   m_SizeDelta: {x: 63.8186, y: 61.4064}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &43397782
@@ -201,16 +202,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 252672683}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: SetTrigger
-        m_Mode: 5
+      - m_Target: {fileID: 43397785}
+        m_TargetAssemblyTypeName: QuitManager, Assembly-CSharp
+        m_MethodName: ExitGame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Show
+          m_StringArgument: QuitGame
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &43397783
@@ -233,7 +234,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 3891269495536304776, guid: fdfcb8e6e8623451d9ae192acc4e4684, type: 3}
+  m_Sprite: {fileID: 8482712648628362555, guid: 9332f192f48850946957ff32b6e23786, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -251,6 +252,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 43397780}
   m_CullTransparentMesh: 1
+--- !u!114 &43397785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 43397780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afda2bbb9f0ab10479af65ace71655ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QuitGame
 --- !u!1001 &142107593
 PrefabInstance:
   m_ObjectHideFlags: 0

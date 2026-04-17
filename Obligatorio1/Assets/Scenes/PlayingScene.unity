@@ -543,6 +543,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1539300977}
     - target: {fileID: 2717149357329744656, guid: e37625481467e3d4c90f1a5ff55f6ddb, type: 3}
+      propertyPath: timeRemaining
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 2717149357329744656, guid: e37625481467e3d4c90f1a5ff55f6ddb, type: 3}
       propertyPath: timerIsRunning
       value: 1
       objectReference: {fileID: 0}

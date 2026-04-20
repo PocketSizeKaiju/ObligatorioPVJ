@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Settings
   PlayerSpeed: 6
   PlayerForce: 10
-  PlayerShootInterval: 0.5
+  PlayerShootInterval: 0.25
   PlayerShotSpeed: 8
   StartingEnemyCount: 0
   EnemySpeed: 1

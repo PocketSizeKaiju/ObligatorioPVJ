@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class DamageTouchingPlayer : MonoBehaviour
 {
@@ -13,22 +14,25 @@ public class DamageTouchingPlayer : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        // Solo entramos aquí si el objeto tiene el Tag "Player"
-        // Como el láser es "Untagged", el enemigo ignorará el choque del láser
-        // y NO quita vida.
         if (collision.CompareTag("Player"))
         {
             if (collision.TryGetComponent(out PlayerLife playerLife))
             {
                 playerLife.TakeDamage(damageAmount);
-
-                Debug.Log("soundPlayer: "+soundPlayer);
-                Debug.Log("sound: "+sound);
                 if (soundPlayer != null && sound != null)
                     soundPlayer.PlaySpecific(sound);
 
-                if (_destroyOnImpact) Destroy(gameObject);
+                if (_destroyOnImpact)
+                {
+                    StartCoroutine(PlaySoundAndDestroy());
+                }
             }
         }
+    }
+
+    IEnumerator PlaySoundAndDestroy()
+    {
+        yield return new WaitForSeconds(sound.length);
+        Destroy(gameObject);
     }
 }

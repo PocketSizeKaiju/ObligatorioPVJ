@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class EnemyDeath : MonoBehaviour
 {
+    [SerializeField] private Animator _animator;
     [SerializeField] private int _scoreValue = 100;
     [SerializeField] private int _health = 0;
     [SerializeField] private bool _summonOnHit;
@@ -9,6 +10,7 @@ public class EnemyDeath : MonoBehaviour
     [SerializeField] private GameObject _coinToSummon;
 
     private EnemyManager _enemyManager;
+    private const string flashRedAnim = "FlashRed";
 
     public void Init(EnemyManager enemyManager)
     {
@@ -22,6 +24,7 @@ public class EnemyDeath : MonoBehaviour
             return;
 
         _health--;
+        if (_animator) _animator.SetTrigger(flashRedAnim);
 
         if (_health > 0)
         {

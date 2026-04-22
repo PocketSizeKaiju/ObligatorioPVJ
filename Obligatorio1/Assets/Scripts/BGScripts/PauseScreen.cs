@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PauseScreen : MonoBehaviour
 {
@@ -16,6 +17,11 @@ public class PauseScreen : MonoBehaviour
         {
             _gameObject.SetActive(!_gameObject.activeSelf);
             Time.timeScale = _gameObject.activeSelf ? 0f : 1f;
+        }
+        if (Keyboard.current.escapeKey.wasPressedThisFrame && _gameObject.activeSelf)
+        {
+            SceneManager.LoadScene("Menu");
+            Time.timeScale = 1f;
         }
     }
 }

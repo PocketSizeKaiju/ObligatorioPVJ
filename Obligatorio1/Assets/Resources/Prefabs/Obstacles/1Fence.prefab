@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e25e06c8caaab64780e5490516cc8c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  _enemySpeed: 4
+  _enemySpeed: 2.5
 --- !u!50 &7535488059646771682
 Rigidbody2D:
   serializedVersion: 5
@@ -200,6 +200,7 @@ MonoBehaviour:
   _health: 1000000
   _summonOnHit: 0
   _enemyToSummon: {fileID: 0}
+  _coinToSummon: {fileID: 0}
 --- !u!82 &895329808914627895
 AudioSource:
   m_ObjectHideFlags: 0

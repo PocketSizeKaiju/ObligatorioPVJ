@@ -209,10 +209,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d27458690ff0364984889c9e7254de3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  _animator: {fileID: 157009434183901025}
   _scoreValue: 200
-  _health: 4
+  _health: 3
   _summonOnHit: 0
   _enemyToSummon: {fileID: 0}
+  _coinToSummon: {fileID: 0}
 --- !u!82 &7629356005312712662
 AudioSource:
   m_ObjectHideFlags: 0

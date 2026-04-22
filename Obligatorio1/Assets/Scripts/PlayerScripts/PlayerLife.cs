@@ -5,10 +5,12 @@ public class PlayerLife : MonoBehaviour
 {
     public Action<int> PlayerTookDamage;
     public Action<int> PlayerHealed;
+    [SerializeField] private Animator animator;
     [SerializeField] private int maxLife;
     [SerializeField] private int actualLife;
     [SerializeField] private GameObject playerExplosion;
 
+    private const string flashRedAnim = "FlashRed";
     private void Awake()
     {
         actualLife = maxLife;
@@ -22,9 +24,11 @@ public class PlayerLife : MonoBehaviour
 
         actualLife = temporalLife;
 
+        animator.SetTrigger(flashRedAnim);
+        
         PlayerTookDamage?.Invoke(actualLife);
 
-        if(actualLife <= 0)
+        if (actualLife <= 0)
         {
             DestroyPlayer();
         }

@@ -1046,7 +1046,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1461,6 +1461,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 4290195252476872142}
+    - target: {fileID: 1714217394405220524, guid: 57a2ef651b6aade4f97534d31f61c674, type: 3}
+      propertyPath: actualLife
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1714217394405220524, guid: 57a2ef651b6aade4f97534d31f61c674, type: 3}
       propertyPath: playerExplosion
       value: 

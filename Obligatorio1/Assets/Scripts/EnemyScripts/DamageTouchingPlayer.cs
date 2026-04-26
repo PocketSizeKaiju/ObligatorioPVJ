@@ -4,31 +4,51 @@ public class DamageTouchingPlayer : MonoBehaviour
 {
     [SerializeField] private int damageAmount;
     [SerializeField] private bool _destroyOnImpact;
-    [SerializeField] public AudioClip sound;
-    private PlaySound soundPlayer;
-    private void Awake()
-    {
-        soundPlayer = GetComponent<PlaySound>();
+    [SerializeField] private AudioClip sound;
 
-    }
-    void OnTriggerEnter2D(Collider2D collision)
+    private PlaySound _sfxPlayer;
+    private bool _alreadyHit;
+
+    private void Start()
     {
-        // Solo entramos aquí si el objeto tiene el Tag "Player"
-        // Como el láser es "Untagged", el enemigo ignorará el choque del láser
-        // y NO quita vida.
-        if (collision.CompareTag("Player"))
+        GameObject sfxPlayerObject = GameObject.Find("SFXPlayer");
+
+        if (sfxPlayerObject != null)
         {
-            if (collision.TryGetComponent(out PlayerLife playerLife))
-            {
-                playerLife.TakeDamage(damageAmount);
+            _sfxPlayer = sfxPlayerObject.GetComponent<PlaySound>();
+        }
+    }
 
-                Debug.Log("soundPlayer: "+soundPlayer);
-                Debug.Log("sound: "+sound);
-                if (soundPlayer != null && sound != null)
-                    soundPlayer.PlaySpecific(sound);
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (_alreadyHit)
+        {
+            return;
+        }
 
-                if (_destroyOnImpact) Destroy(gameObject);
-            }
+        Transform playerRoot = collision.transform.root;
+
+        if (!playerRoot.CompareTag("Player"))
+        {
+            return;
+        }
+
+        _alreadyHit = true;
+
+        PlayerLife playerLife = playerRoot.GetComponent<PlayerLife>();
+        if (playerLife != null && playerLife.isActiveAndEnabled)
+        {
+            playerLife.TakeDamage(damageAmount);
+        }
+
+        if (_sfxPlayer != null && sound != null)
+        {
+            _sfxPlayer.PlaySpecific(sound);
+        }
+
+        if (_destroyOnImpact)
+        {
+            Destroy(transform.root.gameObject);
         }
     }
 }

@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8655362944887567201}
   - component: {fileID: 3644992310985011955}
-  - component: {fileID: 7595720485858299134}
   - component: {fileID: 2512923161259299279}
   m_Layer: 0
   m_Name: EnemyManager
@@ -54,19 +53,6 @@ MonoBehaviour:
   - {fileID: -3026251350733032862, guid: be314c757ee63b5409536da83f5922aa, type: 3}
   - {fileID: 2381682579639049235, guid: ee7dbce561d98e044bf6bc03918bdbcc, type: 3}
   - {fileID: -3026251350733032862, guid: be314c757ee63b5409536da83f5922aa, type: 3}
---- !u!114 &7595720485858299134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 830817187385416997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d525cab590304dd3b3fff6dc9702ccc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DamageTouchingPlayer
-  damageAmount: 1
 --- !u!61 &2512923161259299279
 BoxCollider2D:
   m_ObjectHideFlags: 0

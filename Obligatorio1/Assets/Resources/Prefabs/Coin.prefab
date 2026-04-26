@@ -168,6 +168,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CoinPickup
   _scoreValue: 25
   _pickupSound: {fileID: 8300000, guid: 175ae4bc98a83eb4482295be31c284b7, type: 3}
+  _shouldHeal: 1
+  _healAmount: 1
   _pickupVolume: 0.5
 --- !u!95 &6091211876939351608
 Animator:

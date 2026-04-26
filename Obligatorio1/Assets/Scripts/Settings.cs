@@ -79,4 +79,6 @@ public class Settings : ScriptableObject
     public float highPitchRange = 1.5F;
     public float velToVol = .2F;
     public float velocityClipSplit = 10F;
+    [Header("")]
+    public bool umapyoi = false;
 }

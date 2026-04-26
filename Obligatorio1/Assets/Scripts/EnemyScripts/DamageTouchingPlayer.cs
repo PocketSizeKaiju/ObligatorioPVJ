@@ -1,38 +1,54 @@
 using UnityEngine;
-using System.Collections;
 
 public class DamageTouchingPlayer : MonoBehaviour
 {
     [SerializeField] private int damageAmount;
     [SerializeField] private bool _destroyOnImpact;
-    [SerializeField] public AudioClip sound;
-    private PlaySound soundPlayer;
-    private void Awake()
-    {
-        soundPlayer = GetComponent<PlaySound>();
+    [SerializeField] private AudioClip sound;
 
-    }
-    void OnTriggerEnter2D(Collider2D collision)
+    private PlaySound _sfxPlayer;
+    private bool _alreadyHit;
+
+    private void Start()
     {
-        if (collision.CompareTag("Player"))
+        GameObject sfxPlayerObject = GameObject.Find("SFXPlayer");
+
+        if (sfxPlayerObject != null)
         {
-            if (collision.TryGetComponent(out PlayerLife playerLife))
-            {
-                playerLife.TakeDamage(damageAmount);
-                if (soundPlayer != null && sound != null)
-                    soundPlayer.PlaySpecific(sound);
-
-                if (_destroyOnImpact)
-                {
-                    StartCoroutine(PlaySoundAndDestroy());
-                }
-            }
+            _sfxPlayer = sfxPlayerObject.GetComponent<PlaySound>();
         }
     }
 
-    IEnumerator PlaySoundAndDestroy()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        yield return new WaitForSeconds(sound.length);
-        Destroy(gameObject);
+        if (_alreadyHit)
+        {
+            return;
+        }
+
+        Transform playerRoot = collision.transform.root;
+
+        if (!playerRoot.CompareTag("Player"))
+        {
+            return;
+        }
+
+        _alreadyHit = true;
+
+        PlayerLife playerLife = playerRoot.GetComponent<PlayerLife>();
+        if (playerLife != null && playerLife.isActiveAndEnabled)
+        {
+            playerLife.TakeDamage(damageAmount);
+        }
+
+        if (_sfxPlayer != null && sound != null)
+        {
+            _sfxPlayer.PlaySpecific(sound);
+        }
+
+        if (_destroyOnImpact)
+        {
+            Destroy(transform.root.gameObject);
+        }
     }
 }

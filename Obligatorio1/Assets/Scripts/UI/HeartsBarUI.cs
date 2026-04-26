@@ -8,8 +8,8 @@ public class HeartsBarUI : MonoBehaviour
 
     public void ActiveHeart()
     {
-        animator.SetTrigger("Restore");
         isActive = true;
+        animator.SetTrigger("Restore");
     }
     
     public void DeactiveHeart()
